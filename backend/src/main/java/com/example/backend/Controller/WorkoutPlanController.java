@@ -82,24 +82,30 @@ public class WorkoutPlanController {
         return ResponseEntity.ok(resource);
     }
   @GetMapping("viewPost/{postId}")
-    public ResponseEntity<?> getWorkoutPlanById(@PathVariable("postId") String postId) {
-        Optional<WorkoutPlan> workoutPlan = workoutPlanService.getWorkoutPostById(postId);
+  public ResponseEntity<?> getWorkoutPlanById(@PathVariable("postId") String postId) {
+      Optional<WorkoutPlan> workoutPlan = workoutPlanService.getWorkoutPostById(postId);
 
-        if (workoutPlan.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Workout plan not found");
-        }
+      if (workoutPlan.isEmpty()) {
+          return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Workout plan not found");
+      }
 
-        
-        EntityModel<Optional<WorkoutPlan>> resource = EntityModel.of(workoutPlan);
+      EntityModel<Optional<WorkoutPlan>> resource = EntityModel.of(workoutPlan);
 
-       
-        Link selfLink = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(WorkoutPlanController.class).getWorkoutPlanById(postId)).withSelfRel();
-        resource.add(selfLink);
+      Link selfLink = WebMvcLinkBuilder
+              .linkTo(WebMvcLinkBuilder.methodOn(WorkoutPlanController.class).getWorkoutPlanById(postId)).withSelfRel();
+      resource.add(selfLink);
 
-      
-        return ResponseEntity.ok(resource);
+      return ResponseEntity.ok(resource);
 
-    }
+  }
+    
+  @DeleteMapping("/{workoutPlanId}")
+  public ResponseEntity<String> deleteWorkoutPlanById(@PathVariable("workoutPlanId") String workoutPlanId) {
+      workoutPlanService.deleteWorkoutPlanById(workoutPlanId);
+      return new ResponseEntity<>("Workout plan deleted successfully", HttpStatus.OK);
+  }
+    
+  
 
 
 
