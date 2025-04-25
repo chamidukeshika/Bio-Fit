@@ -1,20 +1,6 @@
 package com.example.backend.Controller;
-import com.example.backend.Dto.FollowDto;
-import com.example.backend.Dto.GoogleSignUpDto;
-import com.example.backend.Dto.LoginDto;
-import com.example.backend.Dto.profileUpdateDto;
-import com.example.backend.Model.User;
-import com.example.backend.Service.UserService;
-import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.support.NullValue;
-import org.springframework.hateoas.CollectionModel;
-import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
+import com.example.backend.Model.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -106,6 +92,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Users not found");
         }
 
+        // Add self link
         //CollectionModel<User> resource = CollectionModel.of(user);
         //resource.add(WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(UserController.class).getAllUsers()).withSelfRel());
 
