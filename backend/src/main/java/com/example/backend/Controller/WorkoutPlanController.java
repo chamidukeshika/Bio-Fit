@@ -91,18 +91,19 @@ public class WorkoutPlanController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Workout plan not found");
         }
 
-        // Create a model for the workout plan
+        
         EntityModel<Optional<WorkoutPlan>> resource = EntityModel.of(workoutPlan);
 
-        // Add self link
+       
         Link selfLink = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(WorkoutPlanController.class).getWorkoutPlanById(postId)).withSelfRel();
         resource.add(selfLink);
 
-        // Return response with HATEOAS links
+      
         return ResponseEntity.ok(resource);
 
-
     }
+
+
 
 
 }
