@@ -81,9 +81,7 @@ public class WorkoutPlanController {
         // Return response with HATEOAS links
         return ResponseEntity.ok(resource);
     }
-
-
-    @GetMapping("viewPost/{postId}")
+  @GetMapping("viewPost/{postId}")
     public ResponseEntity<?> getWorkoutPlanById(@PathVariable("postId") String postId) {
         Optional<WorkoutPlan> workoutPlan = workoutPlanService.getWorkoutPostById(postId);
 
@@ -102,7 +100,6 @@ public class WorkoutPlanController {
         return ResponseEntity.ok(resource);
 
     }
-
 
 
 
