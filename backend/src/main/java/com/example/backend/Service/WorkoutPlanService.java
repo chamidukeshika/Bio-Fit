@@ -59,22 +59,33 @@ public class WorkoutPlanService {
         existingWorkoutPlan.setDuration(updatedWorkoutPlan.getDuration());
         existingWorkoutPlan.setIntensity(updatedWorkoutPlan.getIntensity());
 
-
-        if (updatedWorkoutPlan.getImage() == null){
+        if (updatedWorkoutPlan.getImage() == null) {
             existingWorkoutPlan.setImage(prevImage);
-        }else {
+        } else {
             existingWorkoutPlan.setImage(updatedWorkoutPlan.getImage());
         }
 
-        if (updatedWorkoutPlan.getVideo() == null){
+        if (updatedWorkoutPlan.getVideo() == null) {
             existingWorkoutPlan.setVideo(existingWorkoutPlan.getVideo());
-        }else {
+        } else {
             existingWorkoutPlan.setVideo(updatedWorkoutPlan.getVideo());
         }
         existingWorkoutPlan.setLastModifiedDate(new Date());
         existingWorkoutPlan.setVisibility(updatedWorkoutPlan.isVisibility());
 
         // Save the updated workout plan
+        return workoutPlanRepository.save(existingWorkoutPlan);
+    }
+    
+    
+    public WorkoutPlan UpdateVisibility(String workoutPlanId, boolean visibility){
+        WorkoutPlan existingWorkoutPlan = workoutPlanRepository.findById(workoutPlanId)
+                .orElseThrow(() -> new RuntimeException("Workout plan not found"));
+
+
+        existingWorkoutPlan.setVisibility(visibility);
+        existingWorkoutPlan.setLastModifiedDate(new Date());
+
         return workoutPlanRepository.save(existingWorkoutPlan);
     }
 
