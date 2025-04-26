@@ -42,6 +42,40 @@ public class WorkoutPlanService {
         return workoutPlanRepository.findById(postID);
     }
 
-   
+    public void deleteWorkoutPlanById(String workoutPlanId) {
+        workoutPlanRepository.deleteById(workoutPlanId);
+    }
+
+    public WorkoutPlan updateWorkoutPlanById(String workoutPlanId, WorkoutPlan updatedWorkoutPlan) {
+        WorkoutPlan existingWorkoutPlan = workoutPlanRepository.findById(workoutPlanId)
+                .orElseThrow(() -> new RuntimeException("Workout plan not found"));
+
+        String prevImage = existingWorkoutPlan.getImage();
+
+        // Update existing workout plan fields with the updated values
+        existingWorkoutPlan.setName(updatedWorkoutPlan.getName());
+        existingWorkoutPlan.setDescription(updatedWorkoutPlan.getDescription());
+        existingWorkoutPlan.setExercises(updatedWorkoutPlan.getExercises());
+        existingWorkoutPlan.setDuration(updatedWorkoutPlan.getDuration());
+        existingWorkoutPlan.setIntensity(updatedWorkoutPlan.getIntensity());
+
+
+        if (updatedWorkoutPlan.getImage() == null){
+            existingWorkoutPlan.setImage(prevImage);
+        }else {
+            existingWorkoutPlan.setImage(updatedWorkoutPlan.getImage());
+        }
+
+        if (updatedWorkoutPlan.getVideo() == null){
+            existingWorkoutPlan.setVideo(existingWorkoutPlan.getVideo());
+        }else {
+            existingWorkoutPlan.setVideo(updatedWorkoutPlan.getVideo());
+        }
+        existingWorkoutPlan.setLastModifiedDate(new Date());
+        existingWorkoutPlan.setVisibility(updatedWorkoutPlan.isVisibility());
+
+        // Save the updated workout plan
+        return workoutPlanRepository.save(existingWorkoutPlan);
+    }
 
 }
