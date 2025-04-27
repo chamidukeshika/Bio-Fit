@@ -105,6 +105,36 @@ public class WorkoutPlanController {
       return new ResponseEntity<>("Workout plan deleted successfully", HttpStatus.OK);
   }
     
+  @PutMapping("/{workoutPlanId}")
+  public ResponseEntity<EntityModel<WorkoutPlan>> updateWorkoutPlanById(@PathVariable("workoutPlanId") String workoutPlanId, @RequestBody WorkoutPlan updatedWorkoutPlan) {
+      WorkoutPlan updatedPlan = workoutPlanService.updateWorkoutPlanById(workoutPlanId, updatedWorkoutPlan);
+
+      // Create self link
+      Link selfLink = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(WorkoutPlanController.class).updateWorkoutPlanById(workoutPlanId, updatedWorkoutPlan)).withSelfRel();
+
+      // Create response entity with self link
+      EntityModel<WorkoutPlan> response = EntityModel.of(updatedPlan);
+      response.add(selfLink);
+
+      return new ResponseEntity<>(response, HttpStatus.OK);
+  }
+
+ 
+
+
+  @PutMapping("/visibility/{workoutPlanId}/{visibility}")
+  public ResponseEntity<?> updateVisibility(@PathVariable String workoutPlanId, @PathVariable boolean visibility){
+      WorkoutPlan updatedPlan = workoutPlanService.UpdateVisibility(workoutPlanId,visibility);
+
+      // Create self link
+      Link selfLink = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(WorkoutPlanController.class).updateVisibility(workoutPlanId,visibility)).withSelfRel();
+
+      // Create response entity with self link
+      EntityModel<WorkoutPlan> response = EntityModel.of(updatedPlan);
+      response.add(selfLink);
+
+      return new ResponseEntity<>(response, HttpStatus.OK);
+  }
   
 
 
