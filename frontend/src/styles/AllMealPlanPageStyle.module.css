@@ -1,0 +1,22 @@
+.card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 1%;
+    border-radius: 10px;
+    background: #f6c4c4; /* Set background color to white */
+    color: #3b3c3c; /* Set text color to a light shade of gray */
+    text-align: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Add box shadow */
+  }
+
+  .mealplan_card {
+    background-color: #dcd6d6; /* Light gray background */
+    border: 1px solid #e0e0e0; /* Light border color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding inside the card */
+    margin-bottom: 10px; /* Spacing between cards */
+  }
+  
+  .mealplan_card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+  }

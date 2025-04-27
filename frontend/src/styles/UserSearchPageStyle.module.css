@@ -1,0 +1,31 @@
+.linkStyle {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.rowStyle {
+    padding: 1%;
+    border-radius: 15px;
+    background-color: #ffffff;
+    margin-bottom: 1%;
+    box-shadow: 6px 7px 20px 0px #d4d4d4;
+}
+
+.rowStyle:hover {
+    background-color: rgb(224, 224, 224);
+}
+
+.nameStyle {
+    margin-top: 3%;
+    margin-left: 11%;
+    float: left;
+    font-size: larger;
+    font-family: monospace;
+}
+
+.usernameStyle {
+    font-size: medium;
+    color: rgb(142, 141, 141);
+}
