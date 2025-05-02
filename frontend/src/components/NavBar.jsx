@@ -65,7 +65,6 @@ const NavBar = () => {
           </Link>
         </div>
 
-        {/* Navigation Icons */}
         <Box sx={{ display: 'flex', gap: '80px', flexGrow: 1, justifyContent: 'center', marginLeft: '40px', }}>
           {[
             { href: '/', icon: <Home />, label: 'Feed' },
@@ -122,11 +121,11 @@ const NavBar = () => {
           })}
         </Box>
 
-        {/* User Profile / Login Button */}
+        
         {userInfoString ? (
           <Box style={{ display: 'flex', alignItems: 'center', gap: '15px', marginRight: '20px' }}>
 
-            {/* User Avatar with Tooltip */}
+           
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
