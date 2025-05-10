@@ -98,6 +98,8 @@ public class WorkoutPlanController {
       return ResponseEntity.ok(resource);
 
   }
+
+  //delete mapping 
     
   @DeleteMapping("/{workoutPlanId}")
   public ResponseEntity<String> deleteWorkoutPlanById(@PathVariable("workoutPlanId") String workoutPlanId) {
@@ -120,7 +122,7 @@ public class WorkoutPlanController {
   }
 
  
-
+//put mapping
 
   @PutMapping("/visibility/{workoutPlanId}/{visibility}")
   public ResponseEntity<?> updateVisibility(@PathVariable String workoutPlanId, @PathVariable boolean visibility){
