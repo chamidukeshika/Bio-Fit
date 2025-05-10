@@ -66,6 +66,10 @@ const NavBar = () => {
         </div>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        {/* Navigation Icons */}
+>>>>>>> Stashed changes
 =======
         {/* Navigation Icons */}
 >>>>>>> Stashed changes
@@ -126,17 +130,23 @@ const NavBar = () => {
         </Box>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         
         {userInfoString ? (
           <Box style={{ display: 'flex', alignItems: 'center', gap: '15px', marginRight: '20px' }}>
 
            
 =======
+=======
+>>>>>>> Stashed changes
         {/* User Profile / Login Button */}
         {userInfoString ? (
           <Box style={{ display: 'flex', alignItems: 'center', gap: '15px', marginRight: '20px' }}>
 
             {/* User Avatar with Tooltip */}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
