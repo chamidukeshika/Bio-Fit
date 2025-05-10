@@ -65,6 +65,10 @@ const NavBar = () => {
           </Link>
         </div>
 
+<<<<<<< Updated upstream
+=======
+        {/* Navigation Icons */}
+>>>>>>> Stashed changes
         <Box sx={{ display: 'flex', gap: '80px', flexGrow: 1, justifyContent: 'center', marginLeft: '40px', }}>
           {[
             { href: '/', icon: <Home />, label: 'Feed' },
@@ -121,11 +125,19 @@ const NavBar = () => {
           })}
         </Box>
 
+<<<<<<< Updated upstream
         
         {userInfoString ? (
           <Box style={{ display: 'flex', alignItems: 'center', gap: '15px', marginRight: '20px' }}>
 
            
+=======
+        {/* User Profile / Login Button */}
+        {userInfoString ? (
+          <Box style={{ display: 'flex', alignItems: 'center', gap: '15px', marginRight: '20px' }}>
+
+            {/* User Avatar with Tooltip */}
+>>>>>>> Stashed changes
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
