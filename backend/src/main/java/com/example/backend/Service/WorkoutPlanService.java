@@ -7,12 +7,12 @@ import com.example.backend.Model.Likes;
 import com.example.backend.Repository.WorkoutPlanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 
 @Service
 public class WorkoutPlanService {
@@ -24,29 +24,39 @@ public class WorkoutPlanService {
         workoutPlan.setCreationDate(new Date());
         workoutPlan.setLastModifiedDate(new Date());
         return workoutPlanRepository.save(workoutPlan);
+
     }
 
 
     public List<WorkoutPlan> getWorkoutPlansByUserId(String userId) {
+
         return workoutPlanRepository.findByCreatorId(userId);
+
     }
 
-    public List<WorkoutPlan> getAllWorkoutPlans(){
+    public List<WorkoutPlan> getAllWorkoutPlans() {
+        
         List<WorkoutPlan> allPlans = workoutPlanRepository.findAll();
         return allPlans.stream()
                 .filter(WorkoutPlan::isVisibility)
                 .collect(Collectors.toList());
+
     }
 
-    public Optional<WorkoutPlan> getWorkoutPostById(String postID){
+    public Optional<WorkoutPlan> getWorkoutPostById(String postID) {
+        
         return workoutPlanRepository.findById(postID);
+
     }
 
     public void deleteWorkoutPlanById(String workoutPlanId) {
+
         workoutPlanRepository.deleteById(workoutPlanId);
+
     }
 
     public WorkoutPlan updateWorkoutPlanById(String workoutPlanId, WorkoutPlan updatedWorkoutPlan) {
+
         WorkoutPlan existingWorkoutPlan = workoutPlanRepository.findById(workoutPlanId)
                 .orElseThrow(() -> new RuntimeException("Workout plan not found"));
 
@@ -75,10 +85,12 @@ public class WorkoutPlanService {
 
         // Save the updated workout plan
         return workoutPlanRepository.save(existingWorkoutPlan);
+
     }
     
     
-    public WorkoutPlan UpdateVisibility(String workoutPlanId, boolean visibility){
+    public WorkoutPlan UpdateVisibility(String workoutPlanId, boolean visibility) {
+        
         WorkoutPlan existingWorkoutPlan = workoutPlanRepository.findById(workoutPlanId)
                 .orElseThrow(() -> new RuntimeException("Workout plan not found"));
 
@@ -87,6 +99,7 @@ public class WorkoutPlanService {
         existingWorkoutPlan.setLastModifiedDate(new Date());
 
         return workoutPlanRepository.save(existingWorkoutPlan);
+        
     }
 
 }
