@@ -1,2 +1,2 @@
 # Bio-Fit-
-PAF Assignment Bio-Fit Social web application
+Bio-Fit Social web application
